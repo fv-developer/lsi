@@ -1,26 +1,605 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* BDO Grotesk Custom Font Definitions */
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-Light-BF648a656f46f93.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-Light-BF648a656f91fcb.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-Regular-BF648a656f74a27.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-Regular-BF648a656fd543a.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-Medium-BF648a656f49882.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-Medium-BF648a656fc86b8.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-DemiBold-BF648a656f04a15.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-DemiBold-BF648a656f9c460.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-Bold-BF648a656f312c4.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-Bold-BF648a656f8559f.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-ExtraBold-BF648a656f31316.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-ExtraBold-BF648a656f91fd9.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bdogrotesk';
+  src: url('/fonts/BDOGrotesk-Black-BF648a656e295cc.otf') format('opentype'),
+       url('/fonts/BDOGrotesk-Black-BF648a656f81fe9.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #334180;
+  --primary-hover: #273368;
+  --secondary: #858585;
+  --font-heading: Bdogrotesk, Arial, sans-serif;
+  --font-body: Bdogrotesk, Arial, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-primary: #334180;
+  --color-primary-hover: #273368;
+  --color-secondary: #858585;
+  --font-heading: Bdogrotesk, Arial, sans-serif;
+  --font-body: Bdogrotesk, Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+*, body, button, input, select, textarea, p, a, span, label, h1, h2, h3, h4, h5, h6, .font-heading, .font-body {
+  font-family: Bdogrotesk, Arial, sans-serif;
+}
+
+/* ==========================================
+   TYPOGRAPHY SYSTEM SPECIFICATION (Nevio Style)
+   ========================================== */
+
+/* H1 */
+h1, .h1, .text-h1 {
+  font-size: 46px;
+  line-height: 48px; /* 1.05 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  h1, .h1, .text-h1 {
+    font-size: 56px;
+    line-height: 56px;
+  }
+}
+@media (min-width: 1024px) {
+  h1, .h1, .text-h1 {
+    font-size: 64px !important;
+    line-height: 64px !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* H2 */
+h2, .h2, .text-h2 {
+  font-size: 40px;
+  line-height: 44px; /* 1.1 */
+  font-weight: 400;
 }
+@media (min-width: 768px) {
+  h2, .h2, .text-h2 {
+    font-size: 56px;
+    line-height: 59px; /* 1.05 */
+  }
+}
+@media (min-width: 1024px) {
+  h2, .h2, .text-h2 {
+    font-size: 64px;
+    line-height: 64px; /* 1.0 */
+  }
+}
+
+/* H3 */
+h3, .h3, .text-h3 {
+  font-size: 32px;
+  line-height: 35px; /* 1.1 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  h3, .h3, .text-h3 {
+    font-size: 40px;
+    line-height: 44px; /* 1.1 */
+  }
+}
+@media (min-width: 1024px) {
+  h3, .h3, .text-h3 {
+    font-size: 48px;
+    line-height: 50px; /* 1.05 */
+  }
+}
+
+/* H4 */
+h4, .h4, .text-h4 {
+  font-size: 24px;
+  line-height: 28px; /* 1.15 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  h4, .h4, .text-h4 {
+    font-size: 28px;
+    line-height: 32px; /* 1.15 */
+  }
+}
+@media (min-width: 1024px) {
+  h4, .h4, .text-h4 {
+    font-size: 30px;
+    line-height: 33px; /* 1.1 */
+  }
+}
+
+/* H5 */
+h5, .h5, .text-h5 {
+  font-size: 20px;
+  line-height: 24px; /* 1.2 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  h5, .h5, .text-h5 {
+    font-size: 22px;
+    line-height: 26px; /* 1.2 */
+  }
+}
+@media (min-width: 1024px) {
+  h5, .h5, .text-h5 {
+    font-size: 24px;
+    line-height: 28px; /* 1.15 */
+  }
+}
+
+/* H6 */
+h6, .h6, .text-h6 {
+  font-size: 17px;
+  line-height: 21px; /* 1.25 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  h6, .h6, .text-h6 {
+    font-size: 18px;
+    line-height: 22px; /* 1.2 */
+  }
+}
+@media (min-width: 1024px) {
+  h6, .h6, .text-h6 {
+    font-size: 20px;
+    line-height: 24px; /* 1.2 */
+  }
+}
+
+/* Large Paragraph */
+.large-paragraph, .text-large-paragraph, .lead {
+  font-size: 17px;
+  line-height: 26px; /* 1.5 */
+  font-weight: 300;
+}
+@media (min-width: 768px) {
+  .large-paragraph, .text-large-paragraph, .lead {
+    font-size: 18px;
+    line-height: 27px; /* 1.5 */
+  }
+}
+@media (min-width: 1024px) {
+  .large-paragraph, .text-large-paragraph, .lead {
+    font-size: 20px;
+    line-height: 30px; /* 1.5 */
+  }
+}
+
+/* Paragraph */
+p, .text-p, .text-paragraph {
+  font-size: 15px !important;
+  line-height: 22px !important;
+  font-weight: 300 !important;
+}
+@media (min-width: 768px) {
+  p, .text-p, .text-paragraph {
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight: 300 !important;
+  }
+}
+@media (min-width: 1024px) {
+  p, .text-p, .text-paragraph {
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    line-height: 28px !important;
+    letter-spacing: 0px !important;
+  }
+}
+
+/* Small Text */
+small, .text-small, .small-text {
+  font-size: 13px;
+  line-height: 20px; /* 1.5 */
+  font-weight: 400;
+}
+@media (min-width: 768px) {
+  small, .text-small, .small-text {
+    font-size: 14px;
+    line-height: 21px; /* 1.5 */
+  }
+}
+
+/* Button & Interactive Cursor Styling */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+select,
+summary,
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+button, .btn, .button-text {
+  font-size: 14px !important;
+  line-height: 17px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.4px !important;
+  cursor: pointer !important;
+}
+
+/* Navigation Top Level */
+nav a, .nav-text, .nav-link, .nav-3d-text-front, .nav-3d-text-back {
+  font-size: 13px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+}
+
+/* Submenu */
+.submenu-item, .submenu-link, .nav-submenu-link, nav div[class*="group"] div a {
+  font-size: 12px !important;
+  line-height: 15px !important;
+  font-weight: 400 !important;
+}
+
+/* Label / Eyebrow */
+label, .label, .eyebrow, .text-label {
+  font-size: 13px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+}
+
+/* Search Drawer Overrides */
+.search-drawer h3 {
+  font-size: 20px !important;
+}
+.search-drawer h4 {
+  font-size: 20px !important;
+  line-height: 28px !important;
+}
+.search-drawer p {
+  font-size: 16px !important;
+}
+.search-drawer button {
+  font-size: 12px !important;
+}
+.search-drawer span {
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+}
+
+/* Header CTA Button Specifications */
+.header-btn {
+  font-weight: 400 !important;
+  border-radius: 6px !important;
+  padding: 12px 20px !important;
+  transition: all 0.3s ease-in-out !important;
+}
+
+/* Unsticky (Header on Top over Hero) */
+.header-btn-unsticky {
+  background-color: transparent !important;
+  border: 1.5px solid #afb3b0 !important;
+  color: #ffffff !important;
+}
+.header-btn-unsticky:hover {
+  border-color: #ffffff !important;
+  color: #172648 !important;
+}
+
+/* Sticky (Header Scrolled) */
+.header-btn-sticky {
+  background-color: #172648 !important;
+  border: 1.5px solid #172648 !important;
+  color: #ffffff !important;
+}
+.header-btn-sticky:hover {
+  border-color: #234335 !important;
+  color: #ffffff !important;
+}
+
+/* 3D Icon Roll Transition (Distinct Top-Right Diagonal Roll with Staggered Delay) */
+.icon-3d-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25em;
+  height: 1.25em;
+  perspective: 500px;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  vertical-align: middle;
+  z-index: 20;
+}
+
+.icon-3d-front {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  transform-origin: 100% 0%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  transition-delay: 0s;
+  transform: translate(0%, 0%) scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+.group:hover .icon-3d-front,
+.group\/btn:hover .icon-3d-front,
+.group\/arrow:hover .icon-3d-front,
+.group-hover .icon-3d-front,
+a:hover .icon-3d-front,
+button:hover .icon-3d-front {
+  transition-delay: 0.06s;
+  transform: translate(120%, -120%) scale(0.7) rotate(15deg);
+  opacity: 0;
+}
+
+.icon-3d-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  transform-origin: 0% 100%;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  transition-delay: 0s;
+  transform: translate(-120%, 120%) scale(0.7) rotate(-15deg);
+  opacity: 0;
+}
+
+.group:hover .icon-3d-back,
+.group\/btn:hover .icon-3d-back,
+.group\/arrow:hover .icon-3d-back,
+.group-hover .icon-3d-back,
+a:hover .icon-3d-back,
+button:hover .icon-3d-back {
+  transition-delay: 0.06s;
+  transform: translate(0%, 0%) scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+/* Custom Utilities */
+.bg-primary {
+  background-color: #334180;
+}
+
+.text-primary {
+  color: #334180;
+}
+
+.border-primary {
+  border-color: #334180;
+}
+
+.text-secondary {
+  color: #858585;
+}
+
+/* Lenis smooth scroll standard styling overrides */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* 3D Navigation Text Rotation Animation */
+.nav-3d-container {
+  perspective: 600px;
+  transform-style: preserve-3d;
+}
+
+.nav-3d-text-front {
+  display: block;
+  transform-origin: 50% 100%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(0%) rotateX(0deg);
+  opacity: 1;
+}
+
+.group:hover .nav-3d-text-front {
+  transform: translateY(-100%) rotateX(-90deg);
+  opacity: 0;
+}
+
+.nav-3d-text-back {
+  display: block;
+  transform-origin: 50% 0%;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(100%) rotateX(-90deg);
+  opacity: 0;
+}
+
+.group:hover .nav-3d-text-back {
+  transform: translateY(0%) rotateX(0deg);
+  opacity: 1;
+}
+
+/* Vertical Auto-Moving Marquee Animations */
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes marquee-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-marquee-vertical-up {
+  animation: marquee-up 32s linear infinite;
+}
+
+.animate-marquee-vertical-down {
+  animation: marquee-down 32s linear infinite;
+}
+
+.animate-marquee-vertical-up:hover,
+.animate-marquee-vertical-down:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Reusable Section Title Badge (H2) */
+.lsi-section-badge,
+h2.lsi-section-badge {
+  font-size: 42px;
+  line-height: 1.1;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #314b83;
+  display: inline-block;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .lsi-section-badge,
+  h2.lsi-section-badge {
+    font-size: 64px;
+    line-height: 1.05;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lsi-section-badge,
+  h2.lsi-section-badge {
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #314b83;
+    font-size: 90px !important;
+    line-height: 94px !important;
+  }
+}
+
+.lsi-section-badge.text-white,
+.lsi-section-badge.text-white *,
+h2.lsi-section-badge.text-white,
+h2.lsi-section-badge.text-white * {
+  color: #ffffff !important;
+}
+
+/* Hide default cursor on desktop fine pointer devices for custom GSAP cursor */
+@media (hover: hover) and (pointer: fine) {
+  html, body {
+    cursor: none;
+  }
+}
+
+/* Student Placement Card Paragraph Styling */
+.placement-card-p,
+.placement-card p {
+  font-size: 14px !important;
+  line-height: 20px !important;
+}
+
+/* Utility overrides for explicit text sizes & font weights */
+[class*="text-[16px]"], .text-16px {
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+[class*="text-[17px]"], .text-17px {
+  font-size: 17px !important;
+  line-height: 25px !important;
+}
+
+[class*="font-medium"] {
+  font-weight: 400 !important;
+}
+
+
+/* Utility to hide scrollbars completely */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+
+
+
+
+
+
+
