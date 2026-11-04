@@ -38,23 +38,23 @@ export const navItems: NavItem[] = [
       {
         label: "B.Sc. (Hons) in Integrative Nutrition & Dietetics",
         subtitle: "3 years (4 years Hons) · July · AY 2026-27 · Undergraduate",
-        href: "/programs#bsc-nutrition",
+        href: "/programs/bsc-nutrition",
       },
       {
         label: "M.Sc. in Integrative Nutrition & Dietetics",
         subtitle: "2 years · July · AY 2026-27 · Postgraduate",
-        href: "/programs#msc-nutrition",
+        href: "/programs/msc-nutrition",
       },
       {
         label: "PG Diploma in Holistic Lifestyle & Wellness Coaching",
         subtitle: "1 year · Rolling intake · Diploma",
-        href: "/programs#pg-diploma",
+        href: "/programs/pg-diploma",
       },
       {
         label: "DHIL — Diploma in Health & Integrative Lifestyle",
         subtitle:
           "6 months (intensive) · 12 months (extended) · Quarterly intakes — Jan · Apr · Jul · Oct · Diploma",
-        href: "/programs#diploma-health",
+        href: "/programs/diploma-health",
       },
     ],
   },
@@ -83,25 +83,25 @@ const searchableItems = [
   {
     title: "B.Sc. (Hons) in Integrative Nutrition & Dietetics",
     category: "Undergraduate Program",
-    href: "/programs#bsc-nutrition",
+    href: "/programs/bsc-nutrition",
     description: "3 years (4 years Hons) · July intake · AY 2026-27",
   },
   {
     title: "M.Sc. in Integrative Nutrition & Dietetics",
     category: "Postgraduate Program",
-    href: "/programs#msc-nutrition",
+    href: "/programs/msc-nutrition",
     description: "2 years · July intake · AY 2026-27",
   },
   {
     title: "PG Diploma in Holistic Lifestyle & Wellness Coaching",
     category: "Diploma Program",
-    href: "/programs#pg-diploma",
+    href: "/programs/pg-diploma",
     description: "1 year · Rolling intake · Diploma",
   },
   {
     title: "DHIL — Diploma in Health & Integrative Lifestyle",
     category: "Diploma Program",
-    href: "/programs#diploma-health",
+    href: "/programs/diploma-health",
     description: "6 months (intensive) · 12 months (extended)",
   },
   {

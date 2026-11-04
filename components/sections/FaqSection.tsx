@@ -52,7 +52,7 @@ export function FaqSection() {
   };
 
   return (
-    <section className="w-full relative py-16 sm:py-24 bg-white text-slate-900 border-t border-slate-200">
+    <section id="faqs" className="w-full relative py-16 sm:py-24 bg-white text-slate-900 border-t border-slate-200">
       <div className="max-w-[87rem] mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Heading & Subtext */}

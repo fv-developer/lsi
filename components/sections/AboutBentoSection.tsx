@@ -53,7 +53,7 @@ export function AboutBentoSection() {
               className="relative rounded-[22px] overflow-hidden shadow-sm group h-[300px] sm:h-[330px] border border-slate-100 bg-slate-900"
             >
               <Image
-                src="/images/about/about-card-1.JPG"
+                src="/images/about/about-card-1.jpg"
                 alt="Campus Tour Reading Room"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"

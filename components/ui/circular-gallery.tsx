@@ -26,11 +26,14 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   radius?: number;
   /** Controls the speed of auto-rotation when not scrolling/dragging. */
   autoRotateSpeed?: number;
+  /** Optional external controlled rotation (e.g. driven by sticky scroll) */
+  controlledRotation?: number;
 }
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
-  ({ items, className, radius = 480, autoRotateSpeed = 0.04, ...props }, ref) => {
+  ({ items, className, radius = 480, autoRotateSpeed = 0.04, controlledRotation, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
+    const [dragOffset, setDragOffset] = useState(0);
     const [isInteracting, setIsInteracting] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [effectiveRadius, setEffectiveRadius] = useState(radius);
@@ -56,8 +59,10 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       return () => window.removeEventListener("resize", updateRadius);
     }, [radius]);
 
-    // Handle scroll-based rotation
+    // Handle scroll-based rotation (only when NOT controlled externally)
     useEffect(() => {
+      if (controlledRotation !== undefined) return;
+
       const handleScroll = () => {
         if (isDragging) return;
         setIsInteracting(true);
@@ -82,10 +87,12 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           clearTimeout(scrollTimeoutRef.current);
         }
       };
-    }, [isDragging]);
+    }, [isDragging, controlledRotation]);
 
-    // Handle auto-rotation when idle
+    // Handle auto-rotation when idle (only when NOT controlled externally)
     useEffect(() => {
+      if (controlledRotation !== undefined) return;
+
       const autoRotate = () => {
         if (!isInteracting && !isDragging) {
           setRotation((prev) => prev + autoRotateSpeed);
@@ -100,19 +107,23 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           cancelAnimationFrame(animationFrameRef.current);
         }
       };
-    }, [isInteracting, isDragging, autoRotateSpeed]);
+    }, [isInteracting, isDragging, autoRotateSpeed, controlledRotation]);
 
     // Mouse drag handlers
     const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
       setIsDragging(true);
       startXRef.current = e.clientX;
-      startRotationRef.current = rotation;
+      startRotationRef.current = controlledRotation !== undefined ? dragOffset : rotation;
     };
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       if (!isDragging) return;
       const deltaX = e.clientX - startXRef.current;
-      setRotation(startRotationRef.current + deltaX * 0.35);
+      if (controlledRotation !== undefined) {
+        setDragOffset(startRotationRef.current + deltaX * 0.35);
+      } else {
+        setRotation(startRotationRef.current + deltaX * 0.35);
+      }
     };
 
     const handleMouseUp = () => {
@@ -124,20 +135,25 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       if (e.touches.length === 1) {
         setIsDragging(true);
         startXRef.current = e.touches[0].clientX;
-        startRotationRef.current = rotation;
+        startRotationRef.current = controlledRotation !== undefined ? dragOffset : rotation;
       }
     };
 
     const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
       if (!isDragging || e.touches.length !== 1) return;
       const deltaX = e.touches[0].clientX - startXRef.current;
-      setRotation(startRotationRef.current + deltaX * 0.35);
+      if (controlledRotation !== undefined) {
+        setDragOffset(startRotationRef.current + deltaX * 0.35);
+      } else {
+        setRotation(startRotationRef.current + deltaX * 0.35);
+      }
     };
 
     const handleTouchEnd = () => {
       setIsDragging(false);
     };
 
+    const activeRotation = controlledRotation !== undefined ? controlledRotation + dragOffset : rotation;
     const anglePerItem = 360 / items.length;
 
     return (
@@ -162,13 +178,13 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         <div
           className="relative w-full h-full"
           style={{
-            transform: `rotateY(${rotation}deg)`,
+            transform: `rotateY(${activeRotation}deg)`,
             transformStyle: "preserve-3d",
           }}
         >
           {items.map((item, i) => {
             const itemAngle = i * anglePerItem;
-            const totalRotation = rotation % 360;
+            const totalRotation = activeRotation % 360;
             const relativeAngle = (itemAngle + totalRotation + 360) % 360;
             const normalizedAngle = Math.abs(relativeAngle > 180 ? 360 - relativeAngle : relativeAngle);
 

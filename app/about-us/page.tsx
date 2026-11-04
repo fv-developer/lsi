@@ -62,7 +62,7 @@ export default function AboutUsPage() {
 
             {/* Page Heading & Subtitle */}
             <div className="max-w-4xl space-y-3.5">
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-[64px] leading-tight lg:leading-[64px] tracking-tight font-normal text-white">
+              <h1 className="breadcrumb-heading font-heading !text-[48px] !leading-[48px] tracking-tight font-normal text-white">
                 Shaping Future Leaders in{" "}
                 <span className="block text-[#f9d868] mt-1 font-normal">
                   Integrative Health & Innovation

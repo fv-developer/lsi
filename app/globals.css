@@ -79,6 +79,10 @@
   --color-primary: #334180;
   --color-primary-hover: #273368;
   --color-secondary: #858585;
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
   --font-heading: Bdogrotesk, Arial, sans-serif;
   --font-body: Bdogrotesk, Arial, sans-serif;
 }
@@ -108,6 +112,16 @@ h1, .h1, .text-h1 {
     font-size: 64px !important;
     line-height: 64px !important;
   }
+}
+
+/* Breadcrumb Heading Specification */
+.breadcrumb-heading,
+nav[aria-label="Breadcrumb"] ~ div h1,
+nav[aria-label="Breadcrumb"] + div h1,
+nav[aria-label="Breadcrumb"] ~ h1,
+nav[aria-label="Breadcrumb"] + h1 {
+  font-size: 48px !important;
+  line-height: 48px !important;
 }
 
 /* H2 */
@@ -570,6 +584,11 @@ h2.lsi-section-badge.text-white * {
 }
 
 /* Utility overrides for explicit text sizes & font weights */
+[class*="text-[15px]"], .text-15px {
+  font-size: 15px !important;
+  line-height: 23px !important;
+}
+
 [class*="text-[16px]"], .text-16px {
   font-size: 16px !important;
   line-height: 24px !important;
@@ -582,6 +601,20 @@ h2.lsi-section-badge.text-white * {
 
 [class*="font-medium"] {
   font-weight: 400 !important;
+}
+
+/* Admissions & Fees Section Overrides */
+#admissions-fees p,
+#admissions-fees .p-desc {
+  font-size: 15px !important;
+  line-height: 23px !important;
+}
+
+#admissions-fees .fee-amount {
+  font-family: Bdogrotesk, Arial, sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 28px !important;
 }
 
 

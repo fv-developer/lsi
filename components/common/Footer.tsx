@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,25 +8,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  Send,
   CheckCircle2,
   Award,
-  Sparkles,
 } from "lucide-react";
 
 export function Footer() {
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail("");
-      setTimeout(() => setSubscribed(false), 5000);
-    }
-  };
-
   return (
     <footer className="bg-[#181f3d] text-white pt-16 pb-8 border-t border-white/10 relative overflow-hidden">
       {/* Background Decorative Blur */}
@@ -34,51 +20,6 @@ export function Footer() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[87rem] mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
-        {/* Top Newsletter & Banner Section */}
-        <div className="bg-[#212b54] rounded-2xl p-6 md:p-10 mb-16 border border-white/10 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs text-white/80 uppercase tracking-widest font-semibold mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-              Stay Updated with LSI
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
-              Subscribe to the LSI Integrative Health Digest
-            </h3>
-            <p className="text-white/70 text-sm md:text-base">
-              Get weekly clinical insights, upcoming conference alerts, and admissions updates directly in your inbox.
-            </p>
-          </div>
-
-          <form onSubmit={handleSubscribe} className="w-full lg:w-auto flex-1 max-w-md">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                required
-                className="w-full px-4 py-3.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-amber-400 text-sm transition-all"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-zinc-950 font-semibold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-amber-500/25 shrink-0 text-sm"
-              >
-                {subscribed ? (
-                  <>
-                    <CheckCircle2 className="w-4 h-4 text-zinc-950" />
-                    Subscribed!
-                  </>
-                ) : (
-                  <>
-                    <span>Subscribe</span>
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
-        </div>
-
         {/* Main Footer Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           {/* Brand Info */}
@@ -151,22 +92,22 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/programs#bsc-nutrition" className="text-white/70 hover:text-white transition-colors">
+                <Link href="/programs/bsc-nutrition" className="text-white/70 hover:text-white transition-colors">
                   B.Sc. Integrative Nutrition
                 </Link>
               </li>
               <li>
-                <Link href="/programs#msc-nutrition" className="text-white/70 hover:text-white transition-colors">
+                <Link href="/programs/msc-nutrition" className="text-white/70 hover:text-white transition-colors">
                   M.Sc. Integrative Nutrition
                 </Link>
               </li>
               <li>
-                <Link href="/programs#pg-diploma" className="text-white/70 hover:text-white transition-colors">
+                <Link href="/programs/pg-diploma" className="text-white/70 hover:text-white transition-colors">
                   PG Diploma in Wellness Coaching
                 </Link>
               </li>
               <li>
-                <Link href="/programs#diploma-health" className="text-white/70 hover:text-white transition-colors">
+                <Link href="/programs/diploma-health" className="text-white/70 hover:text-white transition-colors">
                   DHIL — Diploma in Health
                 </Link>
               </li>

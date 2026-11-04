@@ -24,7 +24,7 @@ export interface AboutSectionProps {
 export function AboutSection({
   badge = "About LSI Institute",
   headlineText = "Lifeness Science Institute for Integrative Nutrition and Dietetics is a specialised educator of the industry. As an institute of nutrition and dietetics, we promote involvement in the community with a view of catering to the nutritional needs of diverse population groups like children, women, elderly, and sportspeople.",
-  card1Image = "/images/about/about-card-1.JPG",
+  card1Image = "/images/about/about-card-1.jpg",
   card2Image = "/images/about/about-card-2.jpeg",
   yellowCardTitle = "EXPLORE.",
   yellowCardSubtitle = "The world is waiting.",

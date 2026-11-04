@@ -63,7 +63,7 @@ const slides: SlideTrack[] = [
     description:
       "Master evidence-based functional medicine, gut microbiome therapeutics, and lifestyle oncology under world-class clinical research faculty.",
     primaryCta: { label: "Apply Online Now", href: "/apply" },
-    secondaryCta: { label: "View MSc Curriculum", href: "/programs#msc-nutrition" },
+    secondaryCta: { label: "View MSc Curriculum", href: "/programs/msc-nutrition" },
     affiliationsTag:
       "✦ CLINICAL INTERNSHIPS · 100% PLACEMENT SUPPORT · GLOBAL FACULTY DIRECTORY",
     featurePills: [
@@ -104,7 +104,7 @@ const slides: SlideTrack[] = [
     highlightText: "Tomorrow.",
     description:
       "Flexible diploma programs bridging traditional wisdom and clinical nutrition for healthcare professionals, coaches, and wellness leaders.",
-    primaryCta: { label: "Explore Diploma", href: "/programs#diploma-health" },
+    primaryCta: { label: "Explore Diploma", href: "/programs/diploma-health" },
     secondaryCta: { label: "Book Campus Visit", href: "/about#campus-tour" },
     affiliationsTag:
       "✦ FLEXIBLE BATCHES · EXPERIENTIAL LEARNING · HOSPITAL ROTATIONS",

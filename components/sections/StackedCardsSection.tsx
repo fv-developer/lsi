@@ -46,7 +46,7 @@ const programsData: ProgramCardData[] = [
     eligibility: "Class 12th Pass (Any Stream)",
     duration: "3 Years (Incl. Clinical Internship)",
     accreditation: "University of Mumbai Affiliated",
-    link: "/programs#bsc-nutrition",
+    link: "/programs/bsc-nutrition",
   },
   {
     id: "prog-2",
@@ -59,7 +59,7 @@ const programsData: ProgramCardData[] = [
     eligibility: "Bachelor's Degree in Science / Life Sciences",
     duration: "2 Years (4 Semesters)",
     accreditation: "World-Class Research Faculty",
-    link: "/programs#msc-nutrition",
+    link: "/programs/msc-nutrition",
   },
   {
     id: "prog-3",
@@ -72,7 +72,7 @@ const programsData: ProgramCardData[] = [
     eligibility: "Open to All Graduates & Enthusiasts",
     duration: "1 Year (12 Months)",
     accreditation: "LSI Certified Professional Credential",
-    link: "/programs#diploma-lifestyle",
+    link: "/programs/diploma-health",
   },
   {
     id: "prog-4",
@@ -85,7 +85,7 @@ const programsData: ProgramCardData[] = [
     eligibility: "Graduates from any discipline",
     duration: "11 Months Intensive",
     accreditation: "Global Protocol Certification",
-    link: "/programs#pg-diploma",
+    link: "/programs/pg-diploma",
   },
 ];
 

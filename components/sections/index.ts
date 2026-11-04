@@ -14,6 +14,15 @@ export * from "./MeetOurMentorSection";
 export * from "./AboutBentoSection";
 export * from "./MeetOurFacultySection";
 export * from "./VisionMissionSection";
+export * from "./ProgramOverviewBar";
+export * from "./ProgramOverviewSection";
+export * from "./ProgramCurriculumSection";
+export * from "./ProgramExperienceLearningSection";
+export * from "./ProgramIndustryPlacementSection";
+export * from "./ProgramCareersSection";
+export * from "./ProgramAdmissionsFeesSection";
+export * from "./ProgramRecruitersSection";
+
 
 
 
